@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+    <Match>
+        <!-- The processor must share the database and its locks with workers. -->
+        <Class name="server.CommandProcessor"/>
+        <Method name="&lt;init&gt;" params="server.Database" returns="void"/>
+        <Bug pattern="EI_EXPOSE_REP2"/>
+    </Match>
+</FindBugsFilter>

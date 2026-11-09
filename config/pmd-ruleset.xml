@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="JSON Database production rules"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0">
+    <description>Check Java production code for common defects and poor practices.</description>
+    <rule ref="category/java/bestpractices.xml"/>
+    <rule ref="category/java/errorprone.xml">
+        <exclude name="CloseResource"/>
+    </rule>
+    <rule ref="category/java/errorprone.xml/CloseResource">
+        <properties>
+            <!-- An executor shuts down explicitly when targeting Java 17. -->
+            <property name="closeTargets" value="shutdown"/>
+        </properties>
+    </rule>
+</ruleset>
